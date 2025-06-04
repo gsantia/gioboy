@@ -52,12 +52,12 @@ tasks.named<Test>("test") {
 
 spotless {
     kotlin {
-        ktlint("1.60.0") // Check for the latest Ktlint version compatible with your project
+        ktlint().setUseKtlint()
 
         // Apply common formatting rules directly via Spotless
         trimTrailingWhitespace() // Remove redundant whitespace at the end of lines
         endWithNewline()         // Ensure files end with a newline character
-        indentWithSpaces(4)      // Ensure consistent indentation with 4 spaces (or 2)
+        leadingTabsToSpaces(4)      // Ensure consistent indentation with 4 spaces (or 2)
         // indentWithTabs() // Use this if you prefer tabs over spaces
     }
 
