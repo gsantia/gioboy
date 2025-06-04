@@ -11,6 +11,8 @@ plugins {
 
     // Apply the application plugin to add support for building a CLI application in Java.
     application
+
+    id("com.diffplug.spotless") version "7.0.4"
 }
 
 repositories {
@@ -46,4 +48,22 @@ application {
 tasks.named<Test>("test") {
     // Use JUnit Platform for unit tests.
     useJUnitPlatform()
+}
+
+spotless {
+    kotlin {
+        ktlint("1.60.0") // Check for the latest Ktlint version compatible with your project
+
+        // Apply common formatting rules directly via Spotless
+        trimTrailingWhitespace() // Remove redundant whitespace at the end of lines
+        endWithNewline()         // Ensure files end with a newline character
+        indentWithSpaces(4)      // Ensure consistent indentation with 4 spaces (or 2)
+        // indentWithTabs() // Use this if you prefer tabs over spaces
+    }
+
+    // If you have other languages (e.g., Java files) in your project,
+    // you can configure them here as well:
+    // java {
+    //     googleJavaFormat()
+    // }
 }
