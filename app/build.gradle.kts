@@ -52,7 +52,7 @@ tasks.named<Test>("test") {
 
 spotless {
     kotlin {
-        ktlint().setUseKtlint()
+        ktlint()
 
         // Apply common formatting rules directly via Spotless
         trimTrailingWhitespace() // Remove redundant whitespace at the end of lines
